@@ -4,5 +4,14 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  googleSearchUrl: 'https://www.googleapis.com/customsearch/v1',
+  firebaseConfig : {
+    apiKey: "AIzaSyDVLRwGg64oTKNZAfjB8TbxvFioML3jyWU",
+    authDomain: "alkanza-project.firebaseapp.com",
+    databaseURL: "https://alkanza-project.firebaseio.com",
+    projectId: "alkanza-project",
+    storageBucket: "alkanza-project.appspot.com",
+    messagingSenderId: "204670033764"
+  }
 };
