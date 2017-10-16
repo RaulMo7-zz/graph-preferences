@@ -1,0 +1,12 @@
+.img-container{
+    text-align: center;
+}
+
+.img-container img{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.button-container{
+    margin-top: 30px;
+    text-align: center;
+}

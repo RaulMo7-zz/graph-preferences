@@ -11,6 +11,8 @@ import { HomePageComponent } from 'app/home-page/home-page.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RegistrationPageComponent } from 'app/registration-page/registration-page.component';
+import { ImagesApiService } from 'app/services/images-api.service';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -30,9 +32,10 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    SlimLoadingBarModule.forRoot()
   ],
-  providers: [FirebaseProvider, AngularFireAuth],
+  providers: [FirebaseProvider, AngularFireAuth, ImagesApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

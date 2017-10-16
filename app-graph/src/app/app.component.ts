@@ -26,8 +26,6 @@ export class AppComponent {
 
           this.afService.displayName = auth.displayName;
           this.afService.email = auth.email;
-          // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
-          // the user did not get redirected to the home page.
           this.router.navigate(['']);
         }
       }

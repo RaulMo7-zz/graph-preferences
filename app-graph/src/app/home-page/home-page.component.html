@@ -5,5 +5,11 @@
         Welcome {{afService.displayName || afService.email}}!!
       </h3>
     </div>
+    <div class="img-container">
+      <img src="{{image.link}}" width="300px" height="250px" *ngFor="let image of images" />
+    </div>
+    <div class="button-container">
+      <button (click)="generateNewImages()" type="button" class="btn btn-primary">Generate</button>
+    </div>
   </div>
 </div>
