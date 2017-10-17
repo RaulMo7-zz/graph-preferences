@@ -1,0 +1,14 @@
+<div class="container-accordion">
+  <h3>User list</h3>
+  <accordion [showArrows]="true" [closeOthers]="true" [expandAll]="false">
+    <accordion-group heading="{{user.email}}" *ngFor="let user of users">
+      <accordion-heading>
+      </accordion-heading>
+      <ul>
+        <li *ngFor="let image of getArrayImages(user.images)">
+          <a href="{{image.imageUrl}}" target="_blank">{{image.imageUrl}}</a>
+        </li>
+      </ul>
+    </accordion-group>
+  </accordion>
+</div>

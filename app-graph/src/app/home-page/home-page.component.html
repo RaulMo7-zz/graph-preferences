@@ -4,12 +4,17 @@
       <h3>
         Welcome {{afService.displayName || afService.email}}!!
       </h3>
+      <h4>
+        Select the image you like </h4>
     </div>
-    <div class="img-container">
-      <img src="{{image.link}}" width="300px" height="250px" *ngFor="let image of images" />
+    <div class="img-container" *ngIf="!loadingImages">
+      <img class="fanart" [lazyLoad]="image.link" [ngClass]="{'selected-image': image === selectedImage}" *ngFor="let image of images"
+        (click)="imageSelectedClickEvent(image)" />
     </div>
-    <div class="button-container">
-      <button (click)="generateNewImages()" type="button" class="btn btn-primary">Generate</button>
+    <div class="button-container" *ngIf="!loadingImages">
+      <button (click)="confirmSelectImage()" type="button" class="btn btn-primary" *ngIf="selectedImage">Select Image</button>
+      <img class="img-refresh" (click)="generateNewImages()" src="../../assets/if_refresh-01_186390.png">
     </div>
   </div>
 </div>
+<app-bounce *ngIf="loadingImages"></app-bounce>

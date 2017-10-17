@@ -13,11 +13,18 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { RegistrationPageComponent } from 'app/registration-page/registration-page.component';
 import { ImagesApiService } from 'app/services/images-api.service';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import { FirebaseDatabaseService } from 'app/services/firebase-database.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { HomeAdminComponent } from 'app/admin-manage/home-admin.component';
+import { AdminManageModule } from 'app/admin-manage/admin-manage.module';
+import { BounceComponent } from 'app/bounce/bounce.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: RegistrationPageComponent}
+  { path: 'register', component: RegistrationPageComponent},
+  { path: 'admin', component: HomeAdminComponent}
 ];
 
 @NgModule({
@@ -25,7 +32,8 @@ const routes: Routes = [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    BounceComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +41,11 @@ const routes: Routes = [
     HttpModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(routes),
-    SlimLoadingBarModule.forRoot()
+    SlimLoadingBarModule.forRoot(),
+    LazyLoadImageModule,
+    AdminManageModule
   ],
-  providers: [FirebaseProvider, AngularFireAuth, ImagesApiService],
+  providers: [FirebaseProvider, AngularFireAuth, ImagesApiService, FirebaseDatabaseService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
